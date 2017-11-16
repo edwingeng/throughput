@@ -1,0 +1,8 @@
+2017/11/17 12:30:15 listening on :8888
+2017/11/17 12:30:16 nodelay: false, size: 128, n: 1000000
+2017/11/17 12:30:22 total messages: 1000000, time: 5.519737641s, throughput: 181168
+
+2017/11/17 12:30:23 listening on :8888
+2017/11/17 12:30:24 nodelay: true, size: 128, n: 1000000
+2017/11/17 12:30:38 total messages: 1000000, time: 14.062820876s, throughput: 71109
+
