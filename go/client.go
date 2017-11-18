@@ -1,11 +1,11 @@
 package main
 
 import (
-	"net"
-	"log"
-	"flag"
-	"strings"
 	"encoding/binary"
+	"flag"
+	"log"
+	"net"
+	"strings"
 )
 
 func main() {

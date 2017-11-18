@@ -1,11 +1,11 @@
 package main
 
 import (
-	"net"
-	"log"
-	"time"
-	"io"
 	"encoding/binary"
+	"io"
+	"log"
+	"net"
+	"time"
 )
 
 func main() {
@@ -41,7 +41,7 @@ func handle(c net.Conn) {
 		}
 
 		size := binary.BigEndian.Uint32(header)
-		if size > 1024 * 64 {
+		if size > 1024*64 {
 			log.Fatalln("payload is too big")
 		}
 
