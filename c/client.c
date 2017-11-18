@@ -30,11 +30,6 @@ int main(int argc, char *argv[]) {
     int offset;
     int sent;
 
-    buf[0] = (MSG_SIZE >> 24) & 0xFF;
-    buf[1] = (MSG_SIZE >> 16) & 0xFF;
-    buf[2] = (MSG_SIZE >> 8) & 0xFF;
-    buf[3] = (MSG_SIZE) & 0xFF;
-
     for (i = 0; i < MSG_SIZE; i++) {
         buf[i + 4] = 'A';
     }
@@ -69,6 +64,11 @@ int main(int argc, char *argv[]) {
     printf("size: %d, n: %d%s\n", MSG_SIZE, N, nodelayState);
 
     for (i = 0; i < N; i++) {
+        buf[0] = (MSG_SIZE >> 24) & 0xFF;
+        buf[1] = (MSG_SIZE >> 16) & 0xFF;
+        buf[2] = (MSG_SIZE >> 8) & 0xFF;
+        buf[3] = (MSG_SIZE) & 0xFF;
+
         offset = 0;
         while (offset < 4) {
             sent = send(sock, buf, 4 - offset, 0);

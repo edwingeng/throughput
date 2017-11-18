@@ -77,13 +77,17 @@ int main(int argc, char *argv[]) {
             }
 
             n++;
+            if (n == 1) {
+                start = clock();
+            }
+
             ptr = malloc(sz);
-            memcpy(ptr, buf + off + 4, sz);
+            memcpy(ptr, buf + 4 + off, sz);
             free(ptr);
             off += 4 + sz;
         }
         if (off < offset && off > 0) {
-            memcpy(buf + off, buf, offset - off);
+            memcpy(buf, buf + off, offset - off);
         }
         if (off > 0) {
             offset -= off;

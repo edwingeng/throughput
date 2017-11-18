@@ -10,7 +10,6 @@ Comparison group: A, B
 
 2017/11/18 10:53:26 size: 128, n: 1000000, nodelay
 2017/11/18 10:53:40 n: 1000000, time: 13.912, throughput: 71879
-
 ```
 
 ### go-zmq
