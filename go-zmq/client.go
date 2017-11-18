@@ -24,11 +24,11 @@ func main() {
 	}
 
 	defer dealer.Destroy()
-	msg := []byte(strings.Repeat("A", msgSize))
+	payload := []byte(strings.Repeat("A", msgSize))
 	end := []byte("end")
 
 	for i := 0; i < n; i++ {
-		err = dealer.SendFrame(msg, zmq.FlagNone)
+		err = dealer.SendFrame(payload, zmq.FlagNone)
 		if err != nil {
 			log.Fatal(err)
 		}

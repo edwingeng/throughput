@@ -30,12 +30,12 @@ func main() {
 	}
 
 	c.(*net.TCPConn).SetNoDelay(nodelay)
-	msg := []byte(strings.Repeat("A", msgSize))
+	payload := []byte(strings.Repeat("A", msgSize))
 	end := []byte("end")
 
 	for i := 0; i < n; i++ {
-		binary.Write(c, binary.BigEndian, uint32(len(msg)))
-		c.Write(msg)
+		binary.Write(c, binary.BigEndian, uint32(len(payload)))
+		c.Write(payload)
 	}
 
 	binary.Write(c, binary.BigEndian, uint32(len(end)))
