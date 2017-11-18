@@ -70,10 +70,19 @@ int main(int argc, char *argv[]) {
 
     for (i = 0; i < N; i++) {
         offset = 0;
+        while (offset < 4) {
+            sent = send(sock, buf, 4 - offset, 0);
+            if (sent < 0) {
+                perror("failed to send [1]\n");
+                return 1;
+            }
+            offset += sent;
+        }
+
         while (offset < MSG_SIZE + 4) {
             sent = send(sock, buf + offset, MSG_SIZE + 4 - offset, 0);
             if (sent < 0) {
-                perror("failed to send\n");
+                perror("failed to send [2]\n");
                 return 1;
             }
             offset += sent;

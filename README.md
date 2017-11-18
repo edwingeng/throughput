@@ -20,9 +20,9 @@ This is a simple throughput comparison of serveral socket implementations. I hop
 
 ### c
 ```
-2017/11/18 18:11:05 size: 128, n: 1000000
-2017/11/18 18:11:07 n: 1000000, time: 0.990, throughput: 1010468
+2017/11/18 18:29:28 size: 128, n: 1000000
+2017/11/18 18:29:32 n: 1000000, time: 1.813, throughput: 551612
 
-2017/11/18 18:11:09 size: 128, n: 1000000, nodelay
-2017/11/18 18:11:15 n: 1000000, time: 2.811, throughput: 355721
+2017/11/18 18:29:34 size: 128, n: 1000000, nodelay
+2017/11/18 18:29:46 n: 1000000, time: 5.736, throughput: 174329
 ```
