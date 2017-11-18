@@ -62,7 +62,7 @@ func handle(c net.Conn) {
 		}
 	}
 
-	dt := time.Now().Sub(start)
-	throughput := int(float64(numMsg) / dt.Seconds())
-	log.Printf("total messages: %d, time: %v, throughput: %d\n", numMsg, dt, throughput)
+	dt := time.Now().Sub(start).Seconds()
+	throughput := int(float64(numMsg) / dt)
+	log.Printf("n: %d, time: %.3f, throughput: %d\n", numMsg, dt, throughput)
 }

@@ -17,7 +17,12 @@ func main() {
 	flag.IntVar(&n, "n", 1000000, "")
 	flag.Parse()
 
-	log.Printf("nodelay: %v, size: %d, n: %d\n", nodelay, msgSize, n)
+	var nodelayState string
+	if nodelay {
+		nodelayState = ", nodelay"
+	}
+
+	log.Printf("size: %d, n: %d%s\n", msgSize, n, nodelayState)
 
 	c, err := net.Dial("tcp", "127.0.0.1:8888")
 	if err != nil {
