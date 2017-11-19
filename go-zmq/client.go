@@ -4,8 +4,9 @@ import (
 	"flag"
 	"log"
 	"strings"
-	zmq "github.com/zeromq/goczmq"
 	"time"
+
+	zmq "github.com/zeromq/goczmq"
 )
 
 func main() {

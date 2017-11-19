@@ -2,12 +2,12 @@ package main
 
 import (
 	"encoding/binary"
+	"flag"
 	"io"
 	"log"
 	"net"
-	"time"
 	"sync"
-	"flag"
+	"time"
 )
 
 func main() {
