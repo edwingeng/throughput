@@ -29,13 +29,13 @@ function printUsage() {
 go build server.go
 go build client.go
 
-./server &
+./server -n=1 &
 sleep 1
 ./client
 sleep 1
 
 echo
-./server &
+./server -n=1 &
 sleep 1
 ./client -nodelay
 sleep 1

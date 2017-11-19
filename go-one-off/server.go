@@ -6,9 +6,18 @@ import (
 	"log"
 	"net"
 	"time"
+	"sync"
+	"flag"
 )
 
 func main() {
+	var n int
+	flag.IntVar(&n, "n", 1, "")
+	flag.Parse()
+	if n <= 0 {
+		n = 1
+	}
+
 	addr := ":8888"
 	l, err := net.Listen("tcp", addr)
 	if err != nil {
@@ -18,15 +27,22 @@ func main() {
 	defer l.Close()
 	log.Println("listening on", addr)
 
-	c, err := l.Accept()
-	if err != nil {
-		log.Fatalln(err)
+	var wg sync.WaitGroup
+	for i := 0; i < n; i++ {
+		c, err := l.Accept()
+		if err != nil {
+			log.Fatalln(err)
+		}
+
+		wg.Add(1)
+		go handle(c, &wg)
 	}
 
-	handle(c)
+	wg.Wait()
 }
 
-func handle(c net.Conn) {
+func handle(c net.Conn, wg *sync.WaitGroup) {
+	defer wg.Done()
 	defer c.Close()
 
 	header := make([]byte, 4)
