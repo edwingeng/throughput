@@ -1,6 +1,8 @@
 # Overview
 This is a simple throughput comparison of serveral TCP c/s implementations. I hope you can get a rough idea about their performance differences.
 
+**These toys cannot measure the performance of receiving messages on the server side.**
+
 # Comparison Group A
 
 ### go
@@ -83,3 +85,7 @@ This is a simple throughput comparison of serveral TCP c/s implementations. I ho
 2017/11/19 12:04:02 n: 1000000, time: 26.703, throughput: 37449
 2017/11/19 12:04:02 n: 1000000, time: 26.719, throughput: 37426
 ```
+
+# Conclusion
+- Call IO functions as less as possible, no matter in what programming language.
+- Sending messages in 'go' is about 60% percents slower than in 'c'.
