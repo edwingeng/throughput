@@ -32,20 +32,4 @@ function printUsage() {
     $colorful && tput setaf 7
 }
 
-rm server client > /dev/null 2>&1
-
-gcc -o2 -o server server.c
-gcc -o2 -o client client.c
-
-./server &
-sleep 1
-./client
-sleep 1
-
-echo
-./server &
-sleep 1
-./client -nodelay
-sleep 1
-
-wait > /dev/null 2>&1
+brew install czmq

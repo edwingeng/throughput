@@ -1,91 +1,90 @@
 # Overview
 This is a simple throughput comparison of serveral TCP c/s implementations. I hope you can get a rough idea about their performance differences.
 
-**These toys cannot measure the performance of receiving messages on the server side.**
+**These toys do not measure the performance of receiving messages on the server side.**
 
 # Comparison Group A
 
 ### go
 ```
-2017/11/18 10:53:18 size: 128, n: 1000000
-2017/11/18 10:53:24 n: 1000000, time: 5.489, throughput: 182186
+2019/01/31 15:40:42 payload size: 128, n: 1000000
+2019/01/31 15:40:48 n: 1000000, time: 6.279, throughput: 159257
 
-2017/11/18 10:53:26 size: 128, n: 1000000, nodelay
-2017/11/18 10:53:40 n: 1000000, time: 13.912, throughput: 71879
+2019/01/31 15:40:50 payload size: 128, n: 1000000, TCP_NODELAY
+2019/01/31 15:41:02 n: 1000000, time: 11.878, throughput: 84189
 ```
 
 ### go-zmq
 ```
-2017/11/18 10:52:22 size: 128, n: 1000000, nodelay
-2017/11/18 10:52:24 n: 1000000, time: 2.346, throughput: 426226
+2019/01/31 15:41:59 payload size: 128, n: 1000000, TCP_NODELAY
+2019/01/31 15:42:01 n: 1000000, time: 2.126, throughput: 470454
 ```
 
 ### c
 ```
-2017/11/18 18:29:28 size: 128, n: 1000000
-2017/11/18 18:29:32 n: 1000000, time: 1.813, throughput: 551612
+2019/01/31 15:39:18 payload size: 128, n: 1000000
+2019/01/31 15:39:23 n: 1000000, time: 3.229, throughput: 309655
 
-2017/11/18 18:29:34 size: 128, n: 1000000, nodelay
-2017/11/18 18:29:46 n: 1000000, time: 5.736, throughput: 174329
+2019/01/31 15:39:25 payload size: 128, n: 1000000, TCP_NODELAY
+2019/01/31 15:39:35 n: 1000000, time: 6.176, throughput: 161907
 ```
 
 # Comparison Group B
 
 ### go
 ```
-2017/11/18 10:53:18 size: 128, n: 1000000
-2017/11/18 10:53:24 n: 1000000, time: 5.489, throughput: 182186
+2019/01/31 15:40:42 payload size: 128, n: 1000000
+2019/01/31 15:40:48 n: 1000000, time: 6.279, throughput: 159257
 
-2017/11/18 10:53:26 size: 128, n: 1000000, nodelay
-2017/11/18 10:53:40 n: 1000000, time: 13.912, throughput: 71879
+2019/01/31 15:40:50 payload size: 128, n: 1000000, TCP_NODELAY
+2019/01/31 15:41:02 n: 1000000, time: 11.878, throughput: 84189
 ```
 
 ### go-one-off
 ```
-2017/11/18 18:41:24 size: 128, n: 1000000
-2017/11/18 18:41:27 n: 1000000, time: 2.928, throughput: 341507
+2019/01/31 15:44:35 payload size: 128, n: 1000000
+2019/01/31 15:44:39 n: 1000000, time: 3.605, throughput: 277420
 
-2017/11/18 18:41:29 size: 128, n: 1000000, nodelay
-2017/11/18 18:41:36 n: 1000000, time: 7.164, throughput: 139593
+2019/01/31 15:44:41 payload size: 128, n: 1000000, TCP_NODELAY
+2019/01/31 15:44:47 n: 1000000, time: 6.001, throughput: 166645
 ```
 
 # Comparison Group C
 
 ### go-one-off
 ```
-2017/11/19 10:55:40 size: 128, n: 1000000
-2017/11/19 10:55:40 size: 128, n: 1000000
-2017/11/19 10:55:40 size: 128, n: 1000000
-2017/11/19 10:55:44 n: 1000000, time: 3.920, throughput: 255104
-2017/11/19 10:55:44 n: 1000000, time: 4.000, throughput: 249980
-2017/11/19 10:55:44 n: 1000000, time: 4.095, throughput: 244203
+2019/01/31 15:45:17 payload size: 128, n: 1000000
+2019/01/31 15:45:17 payload size: 128, n: 1000000
+2019/01/31 15:45:17 payload size: 128, n: 1000000
+2019/01/31 15:45:22 n: 1000000, time: 4.441, throughput: 225197
+2019/01/31 15:45:22 n: 1000000, time: 4.454, throughput: 224516
+2019/01/31 15:45:22 n: 1000000, time: 4.486, throughput: 222919
 
-2017/11/19 10:55:46 size: 128, n: 1000000, nodelay
-2017/11/19 10:55:46 size: 128, n: 1000000, nodelay
-2017/11/19 10:55:46 size: 128, n: 1000000, nodelay
-2017/11/19 10:56:12 n: 1000000, time: 26.019, throughput: 38433
-2017/11/19 10:56:12 n: 1000000, time: 26.025, throughput: 38424
-2017/11/19 10:56:12 n: 1000000, time: 26.073, throughput: 38354
+2019/01/31 15:45:24 payload size: 128, n: 1000000, TCP_NODELAY
+2019/01/31 15:45:24 payload size: 128, n: 1000000, TCP_NODELAY
+2019/01/31 15:45:24 payload size: 128, n: 1000000, TCP_NODELAY
+2019/01/31 15:45:48 n: 1000000, time: 23.897, throughput: 41845
+2019/01/31 15:45:48 n: 1000000, time: 23.903, throughput: 41835
+2019/01/31 15:45:48 n: 1000000, time: 23.904, throughput: 41833
 ```
 
 ### go-final
 ```
-2017/11/19 12:03:30 size: 128, n: 1000000
-2017/11/19 12:03:30 size: 128, n: 1000000
-2017/11/19 12:03:30 size: 128, n: 1000000
-2017/11/19 12:03:33 n: 1000000, time: 2.742, throughput: 364693
-2017/11/19 12:03:33 n: 1000000, time: 2.790, throughput: 358405
-2017/11/19 12:03:34 n: 1000000, time: 3.193, throughput: 313213
+2019/01/31 15:46:27 payload size: 128, n: 1000000
+2019/01/31 15:46:27 payload size: 128, n: 1000000
+2019/01/31 15:46:27 payload size: 128, n: 1000000
+2019/01/31 15:46:30 n: 1000000, time: 3.725, throughput: 268454
+2019/01/31 15:46:30 n: 1000000, time: 3.776, throughput: 264827
+2019/01/31 15:46:31 n: 1000000, time: 3.850, throughput: 259754
 
-2017/11/19 12:03:35 listening on :8888
-2017/11/19 12:03:36 size: 128, n: 1000000, nodelay
-2017/11/19 12:03:36 size: 128, n: 1000000, nodelay
-2017/11/19 12:03:36 size: 128, n: 1000000, nodelay
-2017/11/19 12:04:02 n: 1000000, time: 26.682, throughput: 37478
-2017/11/19 12:04:02 n: 1000000, time: 26.703, throughput: 37449
-2017/11/19 12:04:02 n: 1000000, time: 26.719, throughput: 37426
+2019/01/31 15:46:33 payload size: 128, n: 1000000, TCP_NODELAY
+2019/01/31 15:46:33 payload size: 128, n: 1000000, TCP_NODELAY
+2019/01/31 15:46:33 payload size: 128, n: 1000000, TCP_NODELAY
+2019/01/31 15:46:56 n: 1000000, time: 23.920, throughput: 41806
+2019/01/31 15:46:56 n: 1000000, time: 23.921, throughput: 41805
+2019/01/31 15:46:56 n: 1000000, time: 23.924, throughput: 41798
 ```
 
-# Conclusion
+# Conclusions
 - Call IO functions as less as possible, no matter in what programming language.
-- Sending messages in 'go' is about 60% percents slower than in 'c'.
+- Sending messages in 'go' is about 50% percents slower than in 'c'.

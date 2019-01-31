@@ -4,34 +4,40 @@
 pushd `dirname $0` > /dev/null
 trap __EXIT EXIT
 
+colorful=false
+tput setaf 7 > /dev/null 2>&1
+if [[ $? -eq 0 ]]; then
+    colorful=true
+fi
+
 function __EXIT() {
-	popd > /dev/null
+    popd > /dev/null
 }
 
 function printError() {
-    tput setaf 1
+    $colorful && tput setaf 1
     >&2  echo "Error: $@"
-    tput setaf 7
+    $colorful && tput setaf 7
 }
 
 function printImportantMessage() {
-    tput setaf 3
+    $colorful && tput setaf 3
     echo "$@"
-    tput setaf 7
+    $colorful && tput setaf 7
 }
 
 function printUsage() {
-    tput setaf 3
+    $colorful && tput setaf 3
     >&2  echo "$@"
-    tput setaf 7
+    $colorful && tput setaf 7
 }
 
-go build server.go
-go build client.go
+go build -o server/server server/server.go
+go build -o client/client client/client.go
 
-./server &
+server/server &
 sleep 1
-./client
+client/client
 sleep 1
 
 wait > /dev/null 2>&1

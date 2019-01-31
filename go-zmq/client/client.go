@@ -16,7 +16,7 @@ func main() {
 	flag.IntVar(&n, "n", 1000000, "")
 	flag.Parse()
 
-	log.Printf("size: %d, n: %d, nodelay\n", msgSize, n)
+	log.Printf("payload size: %d, n: %d, TCP_NODELAY\n", msgSize, n)
 
 	addr := "tcp://127.0.0.1:8888"
 	dealer, err := zmq.NewDealer(addr)

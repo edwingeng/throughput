@@ -32,20 +32,18 @@ function printUsage() {
     $colorful && tput setaf 7
 }
 
-rm server client > /dev/null 2>&1
+go build -o server/server server/server.go
+go build -o client/client client/client.go
 
-gcc -o2 -o server server.c
-gcc -o2 -o client client.c
-
-./server &
+server/server &
 sleep 1
-./client
+client/client
 sleep 1
 
 echo
-./server &
+server/server &
 sleep 1
-./client -nodelay
+client/client -nodelay
 sleep 1
 
 wait > /dev/null 2>&1

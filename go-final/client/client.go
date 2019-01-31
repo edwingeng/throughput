@@ -19,10 +19,10 @@ func main() {
 
 	var nodelayState string
 	if nodelay {
-		nodelayState = ", nodelay"
+		nodelayState = ", TCP_NODELAY"
 	}
 
-	log.Printf("size: %d, n: %d%s\n", msgSize, n, nodelayState)
+	log.Printf("payload size: %d, n: %d%s\n", msgSize, n, nodelayState)
 
 	c, err := net.Dial("tcp", "127.0.0.1:8888")
 	if err != nil {

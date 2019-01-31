@@ -60,8 +60,8 @@ int main(int argc, char *argv[]) {
     }
 
     printNow();
-    char* nodelayState = (opt == 1) ? ", nodelay" : "";
-    printf("size: %d, n: %d%s\n", MSG_SIZE, N, nodelayState);
+    char* nodelayState = (opt == 1) ? ", TCP_NODELAY" : "";
+    printf("payload size: %d, n: %d%s\n", MSG_SIZE, N, nodelayState);
 
     for (i = 0; i < N; i++) {
         buf[0] = (MSG_SIZE >> 24) & 0xFF;
